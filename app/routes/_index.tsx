@@ -32,11 +32,13 @@ export async function loader() {
     lon: location.lon,
     units: units
   })
+  console.log(data)
   return json({currentConditions: data.current})
 }
 
 export default function CurrentConditions() {
   const {currentConditions} = useLoaderData<typeof loader>()
+  console.log(currentConditions)
   const weather = currentConditions.weather[0]
   return (
     <>
